@@ -25,10 +25,13 @@ html(lang="en")
     // libraries
     include library.jade
     // custom files
+    link(rel="stylesheet",type="text/css",href="chart/plotdb.css")
     link(rel="stylesheet",type="text/css",href="index.css")
-    script(type="text/javascript",src="index.js")
+    script(type="text/javascript",src="bar.js")
+    script(type="text/javascript",src="chart/plotdb.js")
+    script(type="text/javascript",src="chart/dependency.bundle.js")
+    script(type="text/javascript",src="chart/Angel---Parallel.js")
   body
     #root
-      ul
-        li: a(href="/v4.html") 等高線式數值地圖
-        li: a(href="/bar.html") 區域數值長條圖
+      h3 四都氣候資訊
+      #parallel.chart
