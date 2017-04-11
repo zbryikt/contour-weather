@@ -1,0 +1,52 @@
+doctype html
+//- basic libraries: jquery(1.10.2), d3js(3.5.4), angularjs(1.3.15), bootstrap(3.0)/semantic-ui(0.9.3/0.9.5)
+//-                  fontawesome(4.4.0), reactjs(0.14.0)
+- var use = { cdn: false, og: false, favicon: true }
+- var lib = { jquery: true, d3js: true, angular: true, bootstrap: true, semantic: false, fontawesome: true, reactjs: false, revealjs: false, ionrangeslider: true }
+- var assets = "assets"
+- var favicon = "thumbnail.png"
+- var title = "template"
+- var og = {}
+- og.title = title
+- og.twitter = {type: "summary_large_image", site: "@zbryikt", creator: "@zbryikt"}
+- og.domain = "zbryikt.github.io"
+- og.url = ""
+- og.thumbnail = {width: 200, height: 200, type: "image/png"}
+- og.thumbnail.url = "thumbnail.png"
+- og.author = "zbryikt"
+- og.section = "Taiwan"
+- og.keyword = "zbryikt,template"
+- og.description = ""
+html(lang="en")
+  head(prefix="og: http://ogp.me/ns#")
+    meta(charset="utf-8")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    // libraries
+    include library.jade
+    // custom files
+    link(rel="stylesheet",type="text/css",href="chart/plotdb.css")
+    link(rel="stylesheet",type="text/css",href="v4.css")
+    script(type="text/javascript",src="chart/plotdb.js")
+    script(type="text/javascript",src="v4/d3-4.7.4.js")
+    script(type="text/javascript",src="v4/d3-contour-1.1.0.js")
+    script(type="text/javascript",src="v4/d3-selection-multi-0.4.js")
+    script(type="text/javascript",src="v4/Angel-Weather.js")
+    script(type="text/javascript",src="lib/moment.js")
+  body
+    #root.text-center
+      h3 臺灣地區氣候數值地圖
+      #filter.btn-group
+        .btn.btn-default 雲量
+        .btn.btn-default 時雨量
+        .btn.btn-default 濕度
+        .btn.btn-default 風向
+        .btn.btn-default 風速
+        .btn.btn-default 溫度
+        .btn.btn-default 能見度
+      br
+      br
+      .time-slider
+        input.rangeslider(type="text")
+      #contour.chart(style="margin:auto")
+    script(type="text/javascript",src="v4.js")

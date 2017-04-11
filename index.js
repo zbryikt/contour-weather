@@ -1,0 +1,1 @@
+d3.csv("top4.csv",function(a){var l;return l=plotdb.chart.get("Parallel Bar Chart"),console.log(a),l.data(a,!1,{values:["氣溫","濕度","能見度","雲量","風速"],name:["城市名"]}),l.attach("#parallel")});
