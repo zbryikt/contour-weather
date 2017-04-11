@@ -1,6 +1,5 @@
-#2017031809
-#2017032011
 
+loader = $(\#loading)
 $(\.rangeslider).ionRangeSlider do
   min: +moment("2017031809").format("X")
   max: +moment("2017032011").format("X")
@@ -11,7 +10,7 @@ $(\.rangeslider).ionRangeSlider do
       filename = moment(3600 * 9 + data.from, "X").format("YYYYMMDDHH")
       load filename
       chart.handler = null
-    ), 500
+    ), 300
 chart = do
   contour: null
   data: null
@@ -22,16 +21,20 @@ reverse = (d) ->
     for j from 0 til 233
       ret[j + i * 233] = d[j + (232 - i) * 233]
   ret
-filter = document.getElementById \filter
-filter.addEventListener \click, 
 update = (e = {}) ->
   chart.tag = e.{}target.textContent or chart.tag or \能見度
   chart.contour.data chart.data, true, {
     value: [chart.tag]
   }
   if !chart.contour.inited => chart.contour.attach \#contour
+  loader.hide!
+filter = document.getElementById \filter
+filter.addEventListener \click, (e) ->
+  loader.show!
+  setTimeout (-> update e), 100
 
 load = (date) ->
+  loader.show!
   (data) <- d3.csv "csv/#date.csv", _
   chart.data = reverse data
   update!
