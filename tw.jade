@@ -27,15 +27,9 @@ html(lang="en")
     // custom files
     link(rel="stylesheet",type="text/css",href="chart/plotdb.css")
     link(rel="stylesheet",type="text/css",href="index.css")
-    script(type="text/javascript",src="lib/moment.js")
     script(type="text/javascript",src="chart/plotdb.js")
-    script(type="text/javascript",src="chart/dependency.bundle.js")
-    script(type="text/javascript",src="chart/Angel---Parallel2.js")
+    script(type="text/javascript",src="taiwan/dependency.bundle.js")
+    script(type="text/javascript",src="taiwan/angel-taiwan.js")
   body
-    #root
-      .text-center: h3 四都氣候資訊
-      br
-      .time-slider
-        input.rangeslider(type="text")
-      #parallel.chart(style="margin:auto")
-    script(type="text/javascript",src="bar.js")
+    #tw
+    script(type="text/javascript",src="tw.js")

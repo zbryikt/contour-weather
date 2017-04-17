@@ -49,5 +49,7 @@ html(lang="en")
       br
       .time-slider
         input.rangeslider(type="text")
-      #contour.chart(style="margin:auto")
+      div(style="position:relative;width:800px;margin:auto;height:600px;overflow:hidden;")
+        iframe.chart(src="tw.html",style="position:absolute;top:0;left:0;transform:translate(50px,160px) scale(0.8);border:0 solid transparent;box-shadow:none;opacity: 0.6")
+        #contour.chart(style="position:absolute;top:0;left:0")
     script(type="text/javascript",src="v4.js")
